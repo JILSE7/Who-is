@@ -1,29 +1,32 @@
 import { Dispatch } from 'redux';
 import { whoActions } from '../reducers/WhoReducer';
 import { uploadFile } from '../api/nomada';
+import { IActorResponse } from '../interface/nomada';
 
 
 
-const setNameActor  = (nameActor: string) => (
+const setActor  = (nameActor: string, blobURL:string) => (
     {
         type: 'setActor',
-        payload: nameActor
+        payload: { nameActor , blobURL }
     }
 )
 
 
 export const uploadImage = (file:File) => {
     return async(dispatch: Dispatch) => {
+        try {
+            //const {actorName}: IActorResponse = await uploadFile(file)
+            const blobURL = URL.createObjectURL(file);
+            dispatch<any>(startGetActor("said", blobURL))
+            
+        } catch (error) {
+            console.log(error);
+        }
         
-        const response = await uploadFile(file)
-        console.log(response);
     }
 }
 
-export const startSetNameActor = (nameActor:string) => {
-    return (dispatch: Dispatch) => {
-        setTimeout(() => {
-            dispatch(setNameActor(nameActor))
-        }, 3500);
-    }
+export const startGetActor = (nameActor:string, blobURL:string) => {
+    return (dispatch: Dispatch) => dispatch(setActor(nameActor, blobURL))
 }

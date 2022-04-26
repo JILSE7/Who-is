@@ -8,9 +8,9 @@ body {
 }
 
 .App{
-  background-color: rgb(55, 56, 56);
+  background-color: #22272e;
   width: 100vw;
-  height: 100vh;
+  min-height: 100vh;
   text-align: center;
   display: flex;
   flex-direction: column;
@@ -21,17 +21,93 @@ body {
 
 .container{
   width: 100%;
-  height: 100%;
-  
+  height: 80%;
   display: flex;
-  justify-content: center;
-  align-items: center;
-
-  
+  justify-content: space-evenly;
+  align-items: center; 
+  flex-direction: column;
 }
+
+.header_container{
+width: 100%;
+display: flex;
+align-items: center;
+justify-content: space-between;
+padding: 5px 10px;
+background-color: #1a1c1f;
+}
+
+.header_container > img {
+  width: 80px;
+  height: 80px;
+  border-radius: 120px;
+}
+
+
+.header_container > h3 {
+  color: white;
+}
+
+.header_container span {
+  color: rgb(0, 255, 13);
+}
+
+
 .drag_container{
   width: 80%;
   height: 30%;
-  
-  
+  margin-bottom: 20px;
 }
+
+.drag_container span {
+  font-size: 35px;
+  color: #00b1e3;
+}
+
+.drag_container h2 {
+  color: white;
+}
+
+
+.imageBlob,.ImageBlobDiv{
+  width: 200px;
+  height: 300px;
+  border-radius: 100px;
+  margin-bottom: 20px;
+}
+
+button {
+  margin-bottom: 30px;
+  border: 1px solid rgb(82, 81, 81);
+  background-color: #1a1c1f;
+  color: #00b1e3;
+  width: 160px;
+  border-radius: 15px;
+  transition: all 300ms;
+  cursor: pointer;
+}
+
+button:hover{
+  width: 180px;
+  font-weight: bold;
+}
+
+.ImageBlobDiv{
+  background-color: rgb(248, 248, 248);
+  background-image: url("./assets/anonimus3.jpg");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  ;
+}
+
+.actorName, .success_actorName{
+  color: #00b1e3;
+  font-size: 45px;
+}
+
+.success_actorName{
+  font-size: 40px;
+}
+
+

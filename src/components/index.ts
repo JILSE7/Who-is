@@ -1,2 +1,3 @@
-export { Drag } from "./Drag";
+export { Drag }      from "./Drag";
+export { ImageBlob } from "./ImageBlob";
 

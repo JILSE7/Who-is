@@ -3,8 +3,8 @@ import ReactDOM from 'react-dom/client';
 import 'antd/dist/antd.css';
 import './index.css';
 
-import {Provider} from 'react-redux';
 import Who from './Who';
+import {Provider} from 'react-redux';
 import { store } from './store/store';
 
 

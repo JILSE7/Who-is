@@ -15,7 +15,7 @@ export const uploadFile = async(file:File, method:string = 'POST') =>{
         const response = await fetch(url, {
             method,
             headers: {
-                'nomada'       : token,
+                'nomada': token,
             },
             body: formData
         })

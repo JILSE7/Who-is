@@ -1,13 +1,17 @@
 import { Upload, message } from 'antd';
 import { InboxOutlined } from '@ant-design/icons';
-import { headers } from '../helpers/Actor';
 import { useDispatch } from 'react-redux';
-import { startSetNameActor, uploadImage } from '../actions/WhoActions';
+import {  uploadImage } from '../actions/WhoActions';
 const { Dragger } = Upload;
 
-export const Drag = () => {
+interface IProps {
+  actorName?: string
+}
+
+export const Drag = ({actorName}:IProps) => {
 
     const dispatch = useDispatch();
+
 
     const props = {name: 'file', multiple: false, action: "http://chanchitofeliz"};
     
@@ -31,13 +35,9 @@ export const Drag = () => {
     }
 
     function onDrop(e:React.DragEvent<HTMLDivElement>) {
-        console.log('Dropped files', e.dataTransfer.files[0]);
-
-        /* dispatch<any>( startSetNameActor("said mandujano") ) */
-
+      //setimageBlob(URL.createObjectURL(e.dataTransfer.files[0]))
+      //console.log(imageBlob);
         dispatch<any>(uploadImage(e.dataTransfer.files[0]))
-
-
     }
 
   return (
