@@ -8,7 +8,7 @@ const Trayectory = () => {
   const {actor, blobURL, movies} = useSelector<IRootState>((state) => state.whoReducer) as IWhoState;
 
   if(!actor) {
-    return <p>Porfavor! sube una imagen primero para mostrar su trayectoria :C</p>
+    return <p>Porfavor! sube una imagen primero para mostrar su trayectoria :C:C</p>
   }
 
   
