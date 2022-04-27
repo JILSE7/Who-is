@@ -1,14 +1,12 @@
 import { Upload, message } from 'antd';
 import { InboxOutlined } from '@ant-design/icons';
 import { useDispatch } from 'react-redux';
-import {  uploadImage } from '../actions/WhoActions';
+import {  getInfoActor } from '../actions/WhoActions';
 const { Dragger } = Upload;
 
-interface IProps {
-  actorName?: string
-}
 
-export const Drag = ({actorName}:IProps) => {
+
+export const Drag = () => {
 
     const dispatch = useDispatch();
 
@@ -20,7 +18,7 @@ export const Drag = ({actorName}:IProps) => {
         return false;
     }
 
-    const onChange = (info:any) => {
+ /*    const onChange = (info:any) => {
         const { status } = info.file;
         console.log(status);
         if (status !== 'uploading') {
@@ -33,11 +31,10 @@ export const Drag = ({actorName}:IProps) => {
             message.error(`${info.file.name} file upload failed.`);
           }
     }
+ */
+    function onDrop(e:React.DragEvent<HTMLDivElement>):void {
 
-    function onDrop(e:React.DragEvent<HTMLDivElement>) {
-      //setimageBlob(URL.createObjectURL(e.dataTransfer.files[0]))
-      //console.log(imageBlob);
-        dispatch<any>(uploadImage(e.dataTransfer.files[0]))
+        dispatch<any>(getInfoActor(e.dataTransfer.files[0]))
     }
 
   return (
@@ -47,6 +44,7 @@ export const Drag = ({actorName}:IProps) => {
                 listType="picture" 
                 onDrop={onDrop} 
                 beforeUpload={(file) => beforeUpload(file) }
+                
             >
 
             <p className="ant-upload-drag-icon">

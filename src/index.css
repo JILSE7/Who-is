@@ -1,5 +1,6 @@
 body {
   margin: 0;
+  padding: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
@@ -7,26 +8,46 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-.App{
-  background-color: #22272e;
+
+.Layout_container{
   width: 100vw;
   min-height: 100vh;
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-
-}
-
-
-.container{
-  width: 100%;
-  height: 80%;
   display: flex;
   justify-content: space-evenly;
   align-items: center; 
   flex-direction: column;
+  background-color: #e6e6e6;
+  overflow-x: hidden;
 }
+
+header, main, footer {
+  width: 100%;
+}
+
+footer {
+  background-color: #162235 !important;
+  height: 50px;
+  color: white !important;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+footer > p {
+  padding: 0px;
+  margin: 0px;
+}
+
+.container{
+  width: 99%;
+  min-height: 90vh;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center; 
+  flex-direction: column;
+  
+}
+
 
 .header_container{
 width: 100%;
@@ -34,24 +55,25 @@ display: flex;
 align-items: center;
 justify-content: space-between;
 padding: 5px 10px;
-background-color: #1a1c1f;
+background-color: #162235;
+
 }
 
-.header_container > img {
-  width: 80px;
-  height: 80px;
-  border-radius: 120px;
+.nomada_logo{
+  width: 45px;
+  height: 45px;
+  border-radius: 60px;
 }
 
 
-.header_container > h3 {
+.header_container > h3, .header_container > h2 {
   color: white;
 }
 
 .header_container span {
-  color: rgb(0, 255, 13);
+  color: #00b2e3;
+  
 }
-
 
 .drag_container{
   width: 80%;
@@ -109,5 +131,51 @@ button:hover{
 .success_actorName{
   font-size: 40px;
 }
+
+
+
+/*ANT DESING*/
+.site-layout-content {
+  min-height: 280px;
+  padding: 24px;
+  background: #fff;
+}
+#components-layout-demo-top .logo {
+  float: left;
+  width: 120px;
+  height: 31px;
+  margin: 16px 24px 16px 0;
+  background: rgba(255, 255, 255, 0.3);
+}
+.ant-row-rtl #components-layout-demo-top .logo {
+  float: right;
+  margin: 16px 0 16px 24px;
+}
+
+.ant-menu.ant-menu-dark .ant-menu-item-selected {
+background-color: #162235;
+  
+}
+
+.ant-menu.ant-menu-dark span{
+  color: #fbfdfd !important;
+}
+
+.ant-menu.ant-menu-dark span:hover{
+  color: #00b1e3 !important;
+}
+.ant-menu.ant-menu-dark > li span:hover{
+  background-color: #162235 !important;
+}
+
+.ant-menu-overflow-item , .ant-menu-item, .ant-menu-item-only-child{
+  background-color: #162235;
+}
+
+.ant-menu-overflow-item , .ant-menu-item, .ant-menu-item-only-child:hover{
+  background-color: #162235 !important;
+
+}
+
 
 
