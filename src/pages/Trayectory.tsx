@@ -3,7 +3,7 @@ import { ImageBlob } from '../components';
 import { IRootState, IWhoState } from '../reducers/WhoReducer';
 
 
-import { Tag, Divider, Card } from 'antd';
+import { Tag } from 'antd';
 import { StarOutlined, ManOutlined, WomanOutlined,VideoCameraOutlined } from '@ant-design/icons';
 import MovieCard from '../components/MovieCard';
 import { useModal } from '../hooks/useModal';
