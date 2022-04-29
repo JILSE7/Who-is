@@ -1,8 +1,8 @@
 //React Router
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import Home from '../pages/Home';
-import Trayectory from '../pages/Trayectory';
-import LayOut from '../components/LayOut';
+
+import { Home, Trayectory} from '../pages';
+import { LayOut } from '../components';
 
 const WhoRouter = () => {
   return (

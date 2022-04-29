@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux';
 import { IRootState, IWhoState } from '../reducers/WhoReducer';
 
 
-const Home = () => {
+export const Home = () => {
  const {actor, blobURL} = useSelector<IRootState>((state) => state.whoReducer) as IWhoState;
 
 
@@ -14,7 +14,5 @@ const Home = () => {
       </div>
   )
 }
-
-export default Home
 
 

@@ -1,8 +1,10 @@
 import { Dispatch } from 'redux';
-import { InfoActor } from '../reducers/WhoReducer';
-import { uploadFile, getMoviesByActorName } from '../api/nomada';
+import { getMoviesByActorName, uploadFile } from '../api';
 import { IActorResponse } from '../interface/nomada';
-import { MovieResponse, IMovie } from '../interface/movieDB';
+import { InfoActor, whoActions } from '../reducers/WhoReducer';
+import { IMovie, MovieResponse } from '../interface/movieDB';
+import { toast } from 'react-toastify';
+import { toastResponse } from '../helpers/globalHelpers';
 
 
 
@@ -13,19 +15,53 @@ import { MovieResponse, IMovie } from '../interface/movieDB';
  * @param blobURL 
  * @returns 
  */
-const setActor  = (actor:InfoActor, movies: IMovie[],  blobURL:string,) => (
+const setActor  = (actor:InfoActor, movies: IMovie[],  blobURL:string): whoActions => (
     {
         type: 'setActor',
         payload: { actor , blobURL, movies }
     }
 )
 
+/**
+ * Action para restablecer la store
+ * @returns void
+ */
+export const removeActor = () => {
+    return (dispatch: Dispatch) => {
+        dispatch<any>({type: 'restart'})
+    }
+};
 
+
+
+
+
+/** Lanza el dispatch para establecer el actor a la store
+ * @param actor 
+ * @param movies 
+ * @param blobURL 
+ * @returns 
+ */
+
+export const startSetActor = (actor:InfoActor, movies: IMovie[],  blobURL:string, ) => {
+    return (dispatch: Dispatch) => dispatch(setActor(actor, movies, blobURL) )
+}
+
+
+/**
+ * Trae toda la logica para mostra la información del actor
+ * @param file 
+ * @returns 
+ */
 export const getInfoActor = (file:File): (dispatch: Dispatch) => Promise<void> => {
     return async (dispatch: Dispatch): Promise<void> => {
         try {
 
-            const {actorName}:IActorResponse = await uploadFile(file);
+            const id:string | number = toast.loading("Please wait...")
+
+            const {actorName, error}:IActorResponse = await uploadFile(file);
+
+            toastResponse(id, error, actorName);
 
             const {results} = await getMoviesByActorName(actorName) as MovieResponse;
 
@@ -42,17 +78,4 @@ export const getInfoActor = (file:File): (dispatch: Dispatch) => Promise<void> =
         }
         
     }
-}
-
-
-
-/** Lanza el dispatch para establecer el actor a la store
- * @param actor 
- * @param movies 
- * @param blobURL 
- * @returns 
- */
-
-export const startSetActor = (actor:InfoActor, movies: IMovie[],  blobURL:string, ) => {
-    return (dispatch: Dispatch) => dispatch(setActor(actor, movies, blobURL) )
 }

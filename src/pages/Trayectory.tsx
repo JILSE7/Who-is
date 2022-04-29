@@ -1,20 +1,19 @@
 import { useSelector } from 'react-redux';
-import { ImageBlob } from '../components';
+import { useNavigate } from 'react-router-dom';
 import { IRootState, IWhoState } from '../reducers/WhoReducer';
+
+import { useModal } from '../hooks/useModal';
+import { ModalMovie, MovieCard } from '../components';
 
 
 import { Tag } from 'antd';
 import { StarOutlined, ManOutlined, WomanOutlined,VideoCameraOutlined } from '@ant-design/icons';
-import MovieCard from '../components/MovieCard';
-import { useModal } from '../hooks/useModal';
-import { ModalMovie } from '../components/ModalMovie';
-import { useNavigate } from 'react-router-dom';
 
 
 
-const Trayectory = () => {
+export const Trayectory = () => {
 
-  const {actor, blobURL, movies} = useSelector<IRootState>((state) => state.whoReducer) as IWhoState;
+  const {actor, movies} = useSelector<IRootState>((state) => state.whoReducer) as IWhoState;
 
   const {handleOk, showModal, modal} = useModal();
 
@@ -31,10 +30,10 @@ const Trayectory = () => {
       <main className='main_container'>
         <aside className='aside_actor'>
           <div>
-            <img src={blobURL} alt="whoPicture" className='imageBlob'/>
+            <img src={`https://image.tmdb.org/t/p/w500${actor.pathImage}`} alt="whoPicture" className='imageBlob'/>
             <h1>{actor.name}</h1>
             
-            <Tag color={actor.gender == 1 ? "purple" : "blue"}>{actor.gender == 1 ? <WomanOutlined /> : <ManOutlined /> }</Tag>
+            <Tag color={actor.gender === 1 ? "purple" : "blue"}>{actor.gender === 1 ? <WomanOutlined /> : <ManOutlined /> }</Tag>
             <h4>{actor.popularity}</h4>
             <div>
               <StarOutlined style={{...styles}}/>
@@ -72,5 +71,3 @@ const Trayectory = () => {
     </div>
   )
 }
-
-export default Trayectory

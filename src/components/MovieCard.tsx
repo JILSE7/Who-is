@@ -5,7 +5,7 @@ import { IMovie } from '../interface/movieDB';
 const { Meta } = Card;
 
 
-const MovieCard = ({movie, showModal}:{movie:IMovie, showModal:(movie:IMovie)=>void}) => {
+export const MovieCard = ({movie, showModal}:{movie:IMovie, showModal:(movie:IMovie)=>void}) => {
   console.log(movie.video);
   return (
     <Card
@@ -19,6 +19,5 @@ const MovieCard = ({movie, showModal}:{movie:IMovie, showModal:(movie:IMovie)=>v
   )
 }
 
-export default MovieCard
 
 

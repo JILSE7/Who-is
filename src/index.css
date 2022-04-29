@@ -10,13 +10,13 @@ body {
 
 /*GLOBAL STYLES*/
 .Layout_container{
-  width: 100vw;
-  display: flex;
-  justify-content: space-evenly;
   align-items: center; 
-  flex-direction: column;
   background-color: #e6e6e6;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
   overflow-y: hidden;
+  width: 100vw;
   
 }
 
@@ -25,11 +25,11 @@ header, main, footer {
 }
 
 footer {
+  align-items: center;
   background-color: #162235 !important;
-  height: 50px;
   color: white !important;
   display: flex;
-  align-items: center;
+  height: 50px;
   justify-content: space-around;
 }
 
@@ -39,24 +39,24 @@ footer > p {
 }
 
 .container{
-  width: 100%;
-  min-height: 100vh;
-  height: 120px;
-  display: flex;
-  justify-content: space-evenly;
   align-items: center; 
+  display: flex;
   flex-direction: column;
-  overflow: hidden;
+  height: 120px;
+  justify-content: space-evenly;
+  min-height: 100vh;
+  overflow-y: scroll;
+  width: 100%;
 }
 
 
 .header_container{
-width: 100%;
-display: flex;
 align-items: center;
+background-color: #162235;
+display: flex;
 justify-content: space-between;
 padding: 5px 10px;
-background-color: #162235;
+width: 100%;
 
 }
 
@@ -65,9 +65,9 @@ background-color: #162235;
 }
 
 .nomada_logo{
-  width: 45px;
-  height: 45px;
   border-radius: 60px;
+  height: 45px;
+  width: 45px;
 }
 
 
@@ -83,14 +83,14 @@ background-color: #162235;
 
 /*HOME PAGE*/
 .drag_container{
-  width: 80%;
   height: 30%;
-  margin-bottom: 20px;
+  margin-bottom: 50px;
+  width: 80%;
 }
 
 .drag_container span {
-  font-size: 35px;
   color: #00b1e3;
+  font-size: 35px;
 }
 
 .drag_container h2 {
@@ -99,25 +99,25 @@ background-color: #162235;
 
 
 .imageBlob,.ImageBlobDiv{
-  width: 200px;
-  height: 300px;
   border-radius: 100px;
+  height: 300px;
   margin-bottom: 20px;
+  width: 200px;
 }
 
 
 .ImageBlobDiv{
   background-color: rgb(248, 248, 248);
   background-image: url("./assets/anonimus3.jpg");
-  background-size: contain;
-  background-repeat: no-repeat;
   background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
   ;
 }
 
 .actorName, .success_actorName{
-  color: #00b1e3;
   font-size: 45px;
+  color: #00b1e3;
 }
 
 .success_actorName{
@@ -129,8 +129,8 @@ background-color: #162235;
 
 .main_container{
   display: flex;
-  width: 100%;
   height: 100%;
+  width: 100%;
 }
 
 .aside_actor{
@@ -148,47 +148,47 @@ background-color: #162235;
 }
 
 .aside_actor > div > h1 {
-  font-size: 36px;
   color: white;
+  font-size: 36px;
 }
 
 .aside_actor h4 {
-  font-size: 26px;
   color: white;
+  font-size: 26px;
   margin-top: 20px;
 }
 
 .aside_actor img {
-  width: 300px;
-  height: 450px;
   border-radius: 5px;
+  height: 450px;
+  width: 300px;
 }
 
 .section_movies {
+  font-size: 36px;
   height: 100%;
-  width: 80%;  
   padding: 10px;
   text-align: center;
-  font-size: 36px;
+  width: 80%;  
 
 }
 
 .section_movies_card_container{
-  width: 100%;
-  height: 80%;
-  display: flex;
-  justify-content: space-around;
   align-items: center;
+  display: flex;
   flex-wrap: wrap;
+  height: 80%;
+  justify-content: space-around;
   overflow: scroll;
+  width: 100%;
 }
 
 
 /*MODAL*/
 .modal_div{
+  align-items: center;
   display: flex;
   flex-flow: column nowrap;
-  align-items: center;
   text-align: center;  
 }
 
@@ -202,14 +202,14 @@ background-color: #162235;
 
 /*UTILITIES*/
 button {
-  margin-bottom: 30px;
-  border: 1px solid rgb(82, 81, 81);
   background-color: #1a1c1f;
-  color: #00b1e3;
-  width: 160px;
   border-radius: 15px;
-  transition: all 300ms;
+  border: 1px solid rgb(82, 81, 81);
+  color: #00b1e3;
   cursor: pointer;
+  margin-bottom: 30px;
+  transition: all 300ms;
+  width: 160px;
 }
 
 button:hover{
@@ -219,16 +219,16 @@ button:hover{
 
 /*ANT DESING*/
 .site-layout-content {
+  background: #fff;
   min-height: 280px;
   padding: 24px;
-  background: #fff;
 }
 #components-layout-demo-top .logo {
+  background: rgba(255, 255, 255, 0.3);
   float: left;
-  width: 120px;
   height: 31px;
   margin: 16px 24px 16px 0;
-  background: rgba(255, 255, 255, 0.3);
+  width: 120px;
 }
 .ant-row-rtl #components-layout-demo-top .logo {
   float: right;

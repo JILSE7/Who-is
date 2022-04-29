@@ -1,22 +1,25 @@
-import { Drag, ImageBlob } from './components';
-import logo from './assets/whoIs.png';
-import nomadaLogo from './assets/nomada.jpeg';
-import { useSelector } from 'react-redux';
-import { IRootState, IWhoState } from './reducers/WhoReducer';
-import { useState } from 'react';
 import WhoRouter from './router/WhoRouter';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 
 function Who() {
-  const whoState = useSelector<IRootState>((state) => state.whoReducer) as IWhoState;
-  const [imageBlob, setimageBlob] = useState<string>('')
-
-  
 
 
   return (
     <div className="App">
       <WhoRouter/>
+      <ToastContainer
+        position="top-center"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+      />  
     </div>
   );
 }

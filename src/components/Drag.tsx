@@ -1,4 +1,4 @@
-import { Upload, message } from 'antd';
+import { Upload } from 'antd';
 import { InboxOutlined } from '@ant-design/icons';
 import { useDispatch } from 'react-redux';
 import {  getInfoActor } from '../actions/WhoActions';
@@ -18,20 +18,6 @@ export const Drag = () => {
         return false;
     }
 
- /*    const onChange = (info:any) => {
-        const { status } = info.file;
-        console.log(status);
-        if (status !== 'uploading') {
-          console.log(info.file, info.fileList);
-        }
-
-        if (status === 'done') {
-            message.success(`${info.file.name} file uploaded successfully.`);
-          } else if (status === 'error') {
-            message.error(`${info.file.name} file upload failed.`);
-          }
-    }
- */
     function onDrop(e:React.DragEvent<HTMLDivElement>):void {
 
         dispatch<any>(getInfoActor(e.dataTransfer.files[0]))
@@ -54,6 +40,7 @@ export const Drag = () => {
             <p className="ant-upload-hint">
                 Solo se permite subir una imagen a la vez y de formato .png o .jpg
             </p>
+            
         </Dragger>
       </div>
   )

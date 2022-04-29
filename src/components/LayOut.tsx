@@ -1,9 +1,12 @@
-import { useNavigate } from 'react-router-dom';
+import { useNavigate }    from 'react-router-dom';
 import nomadaLogo      from '../assets/nomada.jpeg';
 
-import { Layout, Menu } from 'antd';
+import { Layout, Menu }   from 'antd';
+import { GithubOutlined } from '@ant-design/icons';
 
 const { Header, Content, Footer } = Layout;
+
+
 
 
 interface IProps {
@@ -11,7 +14,7 @@ interface IProps {
 }
 
 
-const LayOut = ({children}:IProps) => {
+export const LayOut = ({children}:IProps) => {
   const navigate = useNavigate();
   
 
@@ -40,8 +43,9 @@ const LayOut = ({children}:IProps) => {
                     </Content>
 
             <Footer>
-                <p>Escoganme :c</p>
-                <p>Nocierto pero si quieren sicierto :D</p>
+            <a href={"https://github.com/JILSE7/Who-is"} target="_blank" rel="noreferrer">
+                 <GithubOutlined style={{color: "#00b1e3", fontSize: "28px", cursor:"pointer"}} />
+            </a>
             </Footer>
         </Layout>
     
@@ -49,6 +53,5 @@ const LayOut = ({children}:IProps) => {
   )
 }
 
-export default LayOut
 
 
