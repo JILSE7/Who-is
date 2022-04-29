@@ -1,8 +1,5 @@
 import { Card } from 'antd';
 
-
-
-
 import { IMovie } from '../interface/movieDB';
 
 const { Meta } = Card;

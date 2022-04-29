@@ -1,5 +1,5 @@
 import { Dispatch } from 'redux';
-import { InfoActor, whoActions } from '../reducers/WhoReducer';
+import { InfoActor } from '../reducers/WhoReducer';
 import { uploadFile, getMoviesByActorName } from '../api/nomada';
 import { IActorResponse } from '../interface/nomada';
 import { MovieResponse, IMovie } from '../interface/movieDB';
