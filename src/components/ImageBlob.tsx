@@ -5,7 +5,7 @@ interface IProps {
     blobURL?  :string,
 }
 export const ImageBlob = ({blobURL, actorName}:IProps) => {
-    const navigate = useNavigate();
+  const navigate = useNavigate();
   return (
       <>
         {

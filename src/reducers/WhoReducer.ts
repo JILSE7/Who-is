@@ -3,28 +3,36 @@ export interface IRootState {
     whoReducer: IWhoState
 }
 
+export interface InfoActor {
+    gender    : number,
+    name      : string,
+    pathImage : string,
+    popularity: number
+}
+
 export interface IWhoState {
-    actor: string,
-    movies?: IMovie[],
-    blobURL?:string
+    actor?  : InfoActor,
+    movies? : IMovie[],
+    blobURL?: string
 }
 
 
 const INITIAL_STATE:IWhoState = {
-    actor: '',
+    actor: undefined,
     movies: [],
     blobURL: ''
 }
 
-export type whoActions = {type: 'setActor', payload:{ nameActor: string, blobURL: string, movies: IMovie[]}} | 
-                         {type: 'setMovies', payload: []} | {type: 'restart'}
+export type whoActions = {type: 'setActor', payload:{ actor: InfoActor, blobURL: string, movies: IMovie[]}} | 
+                         {type: 'setMovies', payload: []} | 
+                         {type: 'restart'};
 
 const WhoReducer = (state:IWhoState = INITIAL_STATE, action:whoActions ) => {
     switch (action.type) {
         case 'setActor' : 
             return {
                 ...state,
-                actor  :  action.payload.nameActor,
+                actor  :  {...action.payload.actor},
                 blobURL:  action.payload.blobURL,
                 movies :  action.payload.movies
                 

@@ -8,16 +8,16 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-
+/*GLOBAL STYLES*/
 .Layout_container{
   width: 100vw;
-  min-height: 100vh;
   display: flex;
   justify-content: space-evenly;
   align-items: center; 
   flex-direction: column;
   background-color: #e6e6e6;
-  overflow-x: hidden;
+  overflow-y: hidden;
+  
 }
 
 header, main, footer {
@@ -39,13 +39,14 @@ footer > p {
 }
 
 .container{
-  width: 99%;
-  min-height: 90vh;
+  width: 100%;
+  min-height: 100vh;
+  height: 120px;
   display: flex;
   justify-content: space-evenly;
   align-items: center; 
   flex-direction: column;
-  
+  overflow: hidden;
 }
 
 
@@ -57,6 +58,10 @@ justify-content: space-between;
 padding: 5px 10px;
 background-color: #162235;
 
+}
+
+::-webkit-scrollbar {
+  display: none;
 }
 
 .nomada_logo{
@@ -75,6 +80,8 @@ background-color: #162235;
   
 }
 
+
+/*HOME PAGE*/
 .drag_container{
   width: 80%;
   height: 30%;
@@ -98,21 +105,6 @@ background-color: #162235;
   margin-bottom: 20px;
 }
 
-button {
-  margin-bottom: 30px;
-  border: 1px solid rgb(82, 81, 81);
-  background-color: #1a1c1f;
-  color: #00b1e3;
-  width: 160px;
-  border-radius: 15px;
-  transition: all 300ms;
-  cursor: pointer;
-}
-
-button:hover{
-  width: 180px;
-  font-weight: bold;
-}
 
 .ImageBlobDiv{
   background-color: rgb(248, 248, 248);
@@ -133,6 +125,75 @@ button:hover{
 }
 
 
+/*TRAYECTORY*/
+
+.main_container{
+  display: flex;
+  width: 100%;
+  height: 100%;
+}
+
+.aside_actor{
+  background-color: #162235;
+  width: 20%;
+  text-align: center;
+  display: flex;
+  flex-flow: column wrap;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px;
+  color: #fff;
+}
+
+.aside_actor > div > h1 {
+  font-size: 36px;
+  color: white;
+}
+
+.aside_actor h3 {
+  font-size: 26px;
+}
+
+.aside_actor img {
+  width: 300px;
+  height: 450px;
+  border-radius: 5px;
+}
+.section_movies {
+  height: 100%;
+  width: 80%;  
+  padding: 10px;
+
+}
+
+
+.section_movies_card_container{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+  overflow: scroll;
+}
+
+
+/*UTILITIES*/
+button {
+  margin-bottom: 30px;
+  border: 1px solid rgb(82, 81, 81);
+  background-color: #1a1c1f;
+  color: #00b1e3;
+  width: 160px;
+  border-radius: 15px;
+  transition: all 300ms;
+  cursor: pointer;
+}
+
+button:hover{
+  width: 180px;
+  font-weight: bold;
+}
 
 /*ANT DESING*/
 .site-layout-content {

@@ -1,5 +1,5 @@
 import { Dispatch } from 'redux';
-import { whoActions } from '../reducers/WhoReducer';
+import { InfoActor, whoActions } from '../reducers/WhoReducer';
 import { uploadFile, getMoviesByActorName } from '../api/nomada';
 import { IActorResponse } from '../interface/nomada';
 import { MovieResponse, IMovie } from '../interface/movieDB';
@@ -13,10 +13,10 @@ import { MovieResponse, IMovie } from '../interface/movieDB';
  * @param blobURL 
  * @returns 
  */
-const setActor  = (nameActor:string, movies: IMovie[],  blobURL:string,) => (
+const setActor  = (actor:InfoActor, movies: IMovie[],  blobURL:string,) => (
     {
         type: 'setActor',
-        payload: { nameActor , blobURL, movies }
+        payload: { actor , blobURL, movies }
     }
 )
 
@@ -26,12 +26,16 @@ export const getInfoActor = (file:File): (dispatch: Dispatch) => Promise<void> =
         try {
             //const {actorName}: IActorResponse = await uploadFile(file)
 
+            
             const {results} = await getMoviesByActorName("Ben Affleck") as MovieResponse;
+            const {gender, profile_path, name, popularity, known_for:actorMovies} = results[0];
+            
+            const actor:InfoActor = {name, gender, pathImage: profile_path, popularity }
 
-            const actorMovies = results[0].known_for;
-
+        
             const blobURL = URL.createObjectURL(file);
-            dispatch<any>(startSetActor("Ben Affleck", actorMovies,  blobURL))
+            
+            dispatch<any>(startSetActor(actor, actorMovies,  blobURL))
             
         } catch (error) {
             console.log(error);
@@ -43,12 +47,12 @@ export const getInfoActor = (file:File): (dispatch: Dispatch) => Promise<void> =
 
 
 /** Lanza el dispatch para establecer el actor a la store
- * @param nameActor 
+ * @param actor 
  * @param movies 
  * @param blobURL 
  * @returns 
  */
 
-export const startSetActor = (nameActor:string, movies: IMovie[],  blobURL:string, ) => {
-    return (dispatch: Dispatch) => dispatch(setActor(nameActor, movies, blobURL) )
+export const startSetActor = (actor:InfoActor, movies: IMovie[],  blobURL:string, ) => {
+    return (dispatch: Dispatch) => dispatch(setActor(actor, movies, blobURL) )
 }

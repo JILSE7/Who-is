@@ -5,15 +5,14 @@ import { useSelector } from 'react-redux';
 import { IRootState, IWhoState } from '../reducers/WhoReducer';
 import { useState } from 'react';
 import { Footer } from 'antd/lib/layout/layout';
-import Taste from './Taste';
 
 const Home = () => {
- const whoState = useSelector<IRootState>((state) => state.whoReducer) as IWhoState;
+ const {actor, blobURL} = useSelector<IRootState>((state) => state.whoReducer) as IWhoState;
 
 
  return (
       <div className="container">
-        <ImageBlob blobURL={whoState.blobURL} actorName={whoState.actor}/> 
+        <ImageBlob blobURL={blobURL} actorName={actor?.name}/> 
         <Drag/>
       </div>
   )
