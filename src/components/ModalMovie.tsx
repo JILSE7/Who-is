@@ -1,34 +1,40 @@
-import { useState } from 'react';
+import { Modal } from 'antd';
+import { IModalState } from '../hooks/useModal';
 
-import { Modal, Button } from 'antd';
+import { StarOutlined } from '@ant-design/icons';
 
-const ModalMovie = () => {
 
-    const [isModalVisible, setIsModalVisible] = useState(false);
+interface IProps{
+  modal: IModalState,
+  isModalVisible: boolean,
+  handleOk: () => void
+}
 
-    const showModal = () => {
-      setIsModalVisible(true);
-    };
-  
-    const handleOk = () => {
-      setIsModalVisible(false);
-    };
-  
-    const handleCancel = () => {
-      setIsModalVisible(false);
-    };
+export const ModalMovie = ({modal,isModalVisible, handleOk}:IProps) => {
   
     return (
-      <>
-        <Button type="primary" onClick={showModal}>
-          Open Modal
-        </Button>
-        <Modal title="Basic Modal" visible={isModalVisible} onOk={handleOk} onCancel={handleCancel}>
-          <p>Some contents...</p>
-          <p>Some contents...</p>
-          <p>Some contents...</p>
+        <Modal 
+          cancelButtonProps={{ style: { display: 'none' } }}
+          okButtonProps= {{style: {"backgroundColor": "#162235"}}}
+          okText="Regresar" 
+          onOk={handleOk} 
+          title={modal.movie?.title} 
+          visible={isModalVisible}  
+        >
+          
+          <div className='modal_div'>
+            <img src={`https://image.tmdb.org/t/p/w500${modal.movie?.poster_path}`} alt="" /> 
+            <p>{modal.movie?.overview}</p>
+            Estreno: 
+            <span>{modal.movie?.release_date}</span>
+              <StarOutlined style={{fontSize:"16px", color:"#162235"}}/>
+            <span>
+                {
+                  modal.movie?.vote_average 
+                }
+            </span>
+          </div>
         </Modal>
-      </>
     );
 }
 

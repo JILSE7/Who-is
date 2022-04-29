@@ -24,14 +24,14 @@ const setActor  = (actor:InfoActor, movies: IMovie[],  blobURL:string,) => (
 export const getInfoActor = (file:File): (dispatch: Dispatch) => Promise<void> => {
     return async (dispatch: Dispatch): Promise<void> => {
         try {
-            //const {actorName}: IActorResponse = await uploadFile(file)
 
-            
-            const {results} = await getMoviesByActorName("Ben Affleck") as MovieResponse;
+            const {actorName}:IActorResponse = await uploadFile(file);
+
+            const {results} = await getMoviesByActorName(actorName) as MovieResponse;
+
             const {gender, profile_path, name, popularity, known_for:actorMovies} = results[0];
             
             const actor:InfoActor = {name, gender, pathImage: profile_path, popularity }
-
         
             const blobURL = URL.createObjectURL(file);
             

@@ -5,7 +5,7 @@ const movieDBURL:string = "https://api.themoviedb.org/3/search/person?api_key=30
 
 
 
-export const uploadFile = async(file:File, method:string = 'POST'):Promise<IActorResponse | undefined> =>{
+export const uploadFile = async(file:File, method:string = 'POST'):Promise<any> =>{
     try {
         const token = "NWJjMmQyY2MtNDliYy00MDhmLWJlOGEtNDk4ZTJjYjJiZWQ1";
 

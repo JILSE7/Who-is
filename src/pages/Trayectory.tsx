@@ -4,15 +4,22 @@ import { IRootState, IWhoState } from '../reducers/WhoReducer';
 
 
 import { Tag, Divider, Card } from 'antd';
-import { StarOutlined, ManOutlined, WomanOutlined } from '@ant-design/icons';
+import { StarOutlined, ManOutlined, WomanOutlined,VideoCameraOutlined } from '@ant-design/icons';
 import MovieCard from '../components/MovieCard';
+import { useModal } from '../hooks/useModal';
+import { ModalMovie } from '../components/ModalMovie';
+import { useNavigate } from 'react-router-dom';
 
 
 
 const Trayectory = () => {
 
   const {actor, blobURL, movies} = useSelector<IRootState>((state) => state.whoReducer) as IWhoState;
-  console.log(actor);
+
+  const {handleOk, showModal, modal} = useModal();
+
+  const navigate = useNavigate();
+  
   if(!actor) {
     return <div className='container'>Porfavor! sube una imagen primero para mostrar su trayectoria :C</div>
   }
@@ -39,16 +46,16 @@ const Trayectory = () => {
           </div>
 
   
-            <button>Return</button>
+          <button onClick={() => navigate("/")}>Return</button>
   
         </aside>
         <section className='section_movies'>
-          <h3>Movies</h3>
+          <h3><VideoCameraOutlined /> Movies</h3>
 
           <div className='section_movies_card_container'>
             {
               movies?.map(movie => {
-                return <MovieCard movie={movie}/>
+                return <MovieCard movie={movie} showModal={showModal}/>
               })
             }
           </div>
@@ -56,6 +63,12 @@ const Trayectory = () => {
         </section>
 
       </main>
+
+      <ModalMovie  
+        handleOk={handleOk} 
+        isModalVisible={modal.isVisible}
+        modal={modal}
+      />
     </div>
   )
 }
